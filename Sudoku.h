@@ -1,27 +1,25 @@
 #ifndef __SUDOKU_H__
 #define __SUDOKU_H__
+#include "mylist.h"
 
 class Sudoku
 {
 public:
-    Sudoku():done(false){}
+    Sudoku(){}
+    //check(x,y) vaild or not.
+    void valid(int x, int y, MyList<int>& validList);
     
     // reset the initial
-    bool init();
+    void init();
     
     // print the map
     void debug();
     
     // solve the Sudoku 
-    int calc(int n = 0);
-    
-private:
-    // check the value(x,y) wheather satisfied 
-    bool check(int x, int y, int value);
+    bool calc(int x=0, int y=0);
     
 public:
-    bool done;
-    int num[9][9];
+    int value[9][9];
 };
 
 #endif
